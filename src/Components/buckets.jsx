@@ -3,6 +3,7 @@ import Bucket from "./bucket";
 
 class Buckets extends Component {
 	render() {
+		console.log("Bucketss-Rendered");
 		const {
 			onReset,
 			onDelete,

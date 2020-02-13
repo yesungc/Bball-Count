@@ -14,6 +14,16 @@ class App extends Component {
 			{ id: 5, value: 0 }
 		]
 	};
+
+	constructor(props) {
+		super(props);
+		console.log("App - Constructor");
+	}
+	componentDidMount() {
+		//AJAX Calls from the Server?
+		console.log("App-Mounted");
+	}
+
 	sumUpPoints = (points) => {
 		this.state.total += points;
 		return this.state.total;
@@ -26,7 +36,7 @@ class App extends Component {
 		points[index] = { ...point };
 		const amount = points[index].value + 2;
 		points[index].value = amount;
-		this.sumUpPoints(amount);
+		this.sumUpPoints(2);
 
 		this.setState({ points });
 	};
@@ -37,7 +47,7 @@ class App extends Component {
 		points[index] = { ...point };
 		const amount = points[index].value + 3;
 		points[index].value = amount;
-		this.sumUpPoints(amount);
+		this.sumUpPoints(3);
 		this.setState({ points });
 	};
 
@@ -56,9 +66,11 @@ class App extends Component {
 		this.setState({ points });
 	};
 	render() {
+		console.log("App - Rendered");
 		return (
 			<React.Fragment>
 				<NavBar totalPoints={this.state.total} />
+
 				<main className="container">
 					<Buckets
 						buckets={this.state.points}

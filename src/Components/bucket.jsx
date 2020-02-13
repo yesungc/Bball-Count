@@ -1,7 +1,20 @@
 import React, { Component } from "react";
 
 class Bucket extends Component {
+	componentDidUpdate(prevProps, prevState) {
+		console.log("prevProps", prevProps);
+		console.log("prevState", prevState);
+		if (prevProps.bucket.value !== this.props.bucket.value) {
+			//Ajax call and get new data?
+		}
+	}
+
+	componentWillUnmount() {
+		console.log("bucket - Unmount");
+	}
+
 	render() {
+		console.log("bucket - Rendered");
 		return (
 			<div>
 				<span>{this.formatCount()}</span>
